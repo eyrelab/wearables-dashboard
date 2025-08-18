@@ -10,13 +10,19 @@ The visualisation uses [Streamlit](https://streamlit.io/), a framework for gener
 
 
 ## Task 1: Set-up and installation
-Before you can begin coding you will need to do some setup steps. These include installing an IDE, installing python, installling python packages, and learning how to run an example application.
+Before you can begin coding you will need to do some setup steps. These include installing an IDE, installing python, installling python packages (some of these may have been done for you!), and learning how to run an example application.
 
 ### Installing an IDE 
 An IDE is an interactive development environment. This is a program where you can write your code and it helps you by highlighting parts of the code like keywords in different colours, giving you suggestions, and helping you navigate between different files and tasks. [Visual Studio Code](https://code.visualstudio.com/) is recommended.
 
+
 ### Familiarisation with VS Code
 VS Code gives you several separate panels, each of which can have lots of tabs within them, which can be confusing at first. The main panel is the top-centre panel, where you can view and edit your code. On the left is a navigation sidebar, where you can open different files, search for particular keywords, and more. At the bottom, you may have a set of tabs named 'Output', 'Terminal' etc. You will need a terminal to run your code so click Terminal -> New Terminal in the top menu, if you don't already see a terminal at the bottom.
+
+Find the file `Readme.md`. Click to open it in the main panel. At the top right, click the button labelled 'Open Preview to the Side'. Now you can see and follow this readme file within your IDE (if you like!).
+
+Click on `File`->`Preferences`->`Themes`->`Colour Theme` and try a couple of different light modes and dark modes. Use whichever one you prefer.
+
 
 ### Installing python and packages
 The software and packages that you need may have already been installed for you. If not, you will need:
@@ -39,6 +45,9 @@ An example dataset is provided in `./data/example_data.csv`. Take a look at this
 - `rr`: Respiratory rate (number of breaths per minute)
 - `rmssd`: Root mean squared standard deviation. This is an indicator of heart rate variability
 - `calib`: Calibrated. The device records the patient's skin temperature, which is usually lower than their core body temperature. A calibrated temperature is one that has been adjusted to account for this difference.
+
+The example data is real data recorded by one of the wearables devices, but it was being worn by a member of our team, not a patient. What difference do you think this might make to the data?
+
 
 #### Questions:
 Do you understand all the column headings? 
@@ -84,6 +93,8 @@ Add labels on the axes. How else can you make the chart look nicer?
 ### Data selector
 Add a radio button to select which data will be shown in the graph: heart rate, respiratory rate, temperature, or calibrated temperature.
 
+Add another radio group to choose between mean and median.
+
 <!-- TODO: add more info -->
 
 Can you think of any better alternatives for allowing the user to switch between these different plots?
@@ -100,7 +111,9 @@ Create a landing page showing a list of all the patients, their start and end da
 
 ## Extension 2: Generate a plot showing how many patients were wearing a device at any time during the study
 
-## Extension 3: Search for gaps in the data, where the device was not worn properly
+## Extension 3: Change the colour of the line when there is missing data above a certain threshold
+
+## Extension 4: Search for gaps in the data, where the device was not worn properly
 
 
 <!-- TODO: Think of more/better extensions -->

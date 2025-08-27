@@ -32,10 +32,46 @@ The software and packages that you need may have already been installed for you.
 
 
 ## Task 2: Introduction to Streamlit
-There are some tutorials available online:
-<!-- TODO KEVIN ... -->
+[Streamlit](https://streamlit.io/) allows us to quickly build a beautiful dashboard in the form of a website. Streamlit itself is a package written for python and handles the web component parts for us. 
 
+Like most libraries/packages/frameworks, Streamlit come with [documentation](https://docs.streamlit.io) which describes the functionality it ships with, as well as some examples. 
 
+### Getting started guide
+A good way to quickly get up-to speed with any new library is to first go through their tutorial (I prefer the  "getting started" guides).
+
+For Streamlit, the [getting started guide](https://docs.streamlit.io/get-started) consists of:
+1. [Installation](https://docs.streamlit.io/get-started/installation) (skip)
+2. [Fundamentals](https://docs.streamlit.io/get-started/fundamentals) (important)
+    1. Basic concepts (important, showcase of features)
+    2. Advanced concepts (cool to know)
+    3. Additional features (not so relevant in the beginning)
+3. [First steps](https://docs.streamlit.io/get-started/tutorials) (shows how to build a functional app)
+4. [Github codespaces](https://docs.streamlit.io/get-started/installation/community-cloud) (not important for us)
+
+We can the installation, as we have take care of that in the previous section. The fundamentals give us a broad overview of what Streamlit can do, and gives hints to the functionality of the library. The examples are all seperate from each other, it's just a showcase of the features.
+First steps show us how to build a functional app, from data loading, to interactive filtering and finally the visulasitation. Github codespaces is not relevant for us.
+
+So let's get started with the "fundamentals" and work our way to "first steps"!
+
+### Additional notes
+>What is Streamlit and what does it do for us?
+
+The library Streamlit comes with a few features such as the website and it's own plotting engine. It is important to note that we can use a number of other libraries to create plots and use Streamlit to integrate them into a website/dashboard.
+We would suggest to use Streamlit's plotting functionality where it is enough, and use Plotly or Altair for more complex interactive graphs. If you want a static plot, we can also display any [matplotlib](https://matplotlib.org) base graph (such as [Plotnine](https://plotnine.org) or [Seaborn](https://seaborn.pydata.org)).
+
+If you want to dive deeper into what good plotting libraries there are, have a look at this [blog article](https://datavizandai.github.io/2024/05/16/streamlit-five-varieties.html) when you're bored:).
+
+>Cool! I want to see EVERY feature of Streamlit and want to know in detail how to use it, or whether I can customise it. How?
+
+There is an API reference which goes into detail how each function should be used. It usually covers the whole library and is an exhaustive source of information to describe the capabilities of a library, for Streamlit it can be found [here](https://docs.streamlit.io/develop/api-reference).
+
+>The API reference is too boring. Give me some creative inspiration!
+
+Sure, here is a [gallery](https://streamlit.io/gallery) of tools build with Streamlit, most of them have code examples. You can also just google "Streamlit + Examples" to find more usescases. The world is your oyster, get creative!
+
+>Now what?
+
+One can spend hours exploring examples and going through tutorials. We think, the getting started guide is enough to, well, get you started. Have a look at the examples to get a feel of what's possible, and then just dive into our dataset. The best way to learn is by trying it yourself.
 
 ## Task 3: Data familiarity
 The device records several measures of the patient's health, once every second, for up to 5 days. It is difficult to directly visualize this amount of data (5 days * 24 hours * 60 minutes * 60 seconds = 432,000 rows of data per patient) so the data has been [binned](https://en.wikipedia.org/wiki/Data_binning) and a summary of each bin is given instead of listing every reading. The mean, median, and amount of missing data is calculated for each measure, within each bin.

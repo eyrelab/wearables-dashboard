@@ -88,8 +88,7 @@ The example data is real data recorded by one of the wearables devices, but it w
 #### Questions:
 Do you understand all the column headings? 
 
-Have a look at row 474 of the data. What do you think might have happened here? 
-<!-- TODO JO: generate data with a bigger gap -->
+Have a look at row 82 of the data. What do you think might have happened here? 
 
 How is `overall_completeness` calculated? Are there any exceptions?
 
@@ -105,7 +104,10 @@ Open the file `app.py`. This is a short python script which uses Streamlit to di
 Run Streamlit by typing `streamlit run app.py` into a terminal window. What happens? 
 
 Go back to `app.py` and add another line of code at the bottom:
-`st.write("This app visualizes wearables data.")`. Save the file. What happens? Go back to the browser where your app is running. There are buttons at the top labelled `Rerun`, `Always rerun`. Use one of these to update the app in the browser.
+
+    st.write("This app visualizes wearables data.")
+
+Save the file. What happens? Go back to the browser where your app is running. There are buttons at the top labelled `Rerun`, `Always rerun`. Use one of these to update the app in the browser.
 
 Make sure you can see your application running, and make changes to it, before you go on to the next stage.
 
@@ -121,7 +123,7 @@ Now load in the example data using the pandas function `read_csv()` - you can le
 Use the streamlit function `dataframe()` to add a table to the app, displaying the data. Check how it looks in the web browser. It's much easier to view the data this way, than it was in the csv file! You can sort it by whichever column you like and search for particular values.
 
 ### Create a line graph
-Create a graph plotting time on the horizontal axis and the heart rate (hr) on the vertical axis.
+Instead of the data frame, create a graph plotting time on the horizontal axis and the median heart rate (hr_median) on the vertical axis.
 <!-- TODO: add more info -->
 
 Add labels on the axes. How else can you make the chart look nicer?

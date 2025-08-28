@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import re
-import altair as alt
+from datetime import datetime
 
 st.title("wearables data dashboard")
 
@@ -55,7 +55,6 @@ try:
 
     if meanMedSelect=='mean':#probs a better way to do this
         st.line_chart(df,x='datetime',y=meanData[yData],x_label='time',y_label=yData,color="#89181A")
-        #st.altair_chart(alt.Chart(df).mark_point().encode(x='time',y='yData'))
     elif meanMedSelect=='median':
         st.line_chart(df,x='datetime',y=medData[yData],x_label='time',y_label=yData,color="#89181A")
 except ValueError:
@@ -64,7 +63,7 @@ except ValueError:
 
 st.divider()
 
-st.subheader('num of devices worn at a time')
+st.subheader('num of devices worn at a time')#wont consider NA data as device was still worn?
 
 #loop thru dfs and find min/max dates
 minDate=min(dfs[0]['datetime'])#start with 1st and compare rest
@@ -77,3 +76,20 @@ for x in dfs:
     if newMax>maxDate:
         maxDate=newMax
 
+#make a table with date range, loop thru each csv +
+#check its min/max then +=1 to count column for all in range
+
+dateRange=pd.date_range(minDate,maxDate,freq='5min')#records every 5mins
+numWorn={
+    'count':[0 for i in range(len(dateRange))]
+}
+dfWorn=pd.DataFrame(numWorn,index=[dateRange])
+
+for x in dfs:
+    dfMin=min(x['datetime'])
+    dfMax=max(x['datetime'])
+    dfWorn.loc[dfMin:dfMax]+=1#*SHOULD +1 to each count in between active dates?
+    print(dfWorn.loc[dfMin])#the row at the minDate (loops so prints all 43)
+    
+st.line_chart(dfWorn, y='count')
+st.dataframe(dfWorn)

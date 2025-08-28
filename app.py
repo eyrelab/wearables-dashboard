@@ -1,4 +1,3 @@
 import streamlit as st
-
-st.title("Wearables Data Dashboard")
-
+pg = st.navigation([st.Page('landing.py'),st.Page('dashboard.py')])
+pg.run()

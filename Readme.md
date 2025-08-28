@@ -153,6 +153,43 @@ Create a landing page showing a list of all the patients, their start and end da
 
 ## Extension 4: Search for gaps in the data, where the device was not worn properly
 
+## Extension 5: Incorporate `Git` and GitHub into the workflow
+Git is a powerful Version Control System (VCS) that we can use to keep track of our code changes and roll back to earlier versions in case we broke something (like a time machine). In addition to version control, Git allows for multiple users to efficiently collaborate on the same codebase simultaneously. 
+For our use case, we will use Git together with GitHub, to share code, track issues (you can also think of them as features or tasks here), merge pull requests and more.
 
-<!-- TODO: Think of more/better extensions -->
+### Git tutorial
+As before, we recommend going through a short Git tutorial to get familair with the basic commands. After that, we will apply it to our Wearables Dashboard project!
+
+FreeCodeCamp has a great one: [Learn the Basics of Git in Under 10 Minutes
+](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)
+
+### How to use git in "bigger" project
+We could use git just for version control, to commit (save) changes and to push (upload) them to a remote repository, like Github, to keep track of our code. In this extension, we would like to use Git and related tools to manage a project.
+Let's simulate a bigger (collaborative) project, where each _task_ and _extension_ is split into its own _issue_.
+
+A typical workflow could be as follows:
+1. Someone (your manager, the community, you) defines a set of features they would like to see in the project
+2. These tasks get added to the repository as an issue
+3. [Optional] You could then add multiple issues to a milestone, which needs to be completed before the next release. (We'll skip this for now)
+4. The issue is assigned to someone, and they work on it, submit a pull request and close the issue.
+
+#### Step 1: Fork this repository
+To keep this Git repository clean, we recommend you to for the project and work on your own repo. You can also commit your current code into your fork!
+Here's how to do it on [Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
+
+#### Step 2: Add issues
+Add all the remaining tasks and extensions as issues to your forked repository, you can assign the issues or label them if you want (some people have tags such as "bug", "enhancement", "wontfix" etc).
+
+#### Step 4: Write code and commit to new branch
+Create a new branch for each issue and commit your code to it.
+Here's how you would do it in [VSCode](https://code.visualstudio.com/docs/sourcecontrol/overview#_branches-and-tags) (or if you prefer, use the command line).
+
+#### Step 5: Merge code into the main branch
+The committed code currently resides on a separate branch (copy) compared to the main version. To make add it back to the main branch, you would need to merge them first.
+Why do we go through the extra step of branches? It could be, that somebody else is working on another feature that uses the same files as you do. Branches allow us to work on seperate copies and only worry about how to combine the work at the end, when they are both ready.
+
+It also allows us to do _code review_. We would normally like to keep the _main_ branch prestine and working. Only code that works and is approved, gets merged (added) into it.
+
+Somebody else normally would then review your code, add comments and then when it's all good, merge it into main. If you want, we can be your code reviewers, otherwise just merge it into main:)
+<!-- Think of more/better extensions -->
 

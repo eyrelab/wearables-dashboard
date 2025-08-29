@@ -76,10 +76,8 @@ for x in dfs:
     if newMax>maxDate:
         maxDate=newMax
 
-#make a table with date range, loop thru each csv +
-#check its min/max then +=1 to count column for all in range
-
-dateRange=pd.date_range(minDate,maxDate,freq='5min')#records every 5mins
+intervalFreq='30min'#records every 5mins but lags on graph w/ lots of date points, 30min for better performance
+dateRange=pd.date_range(minDate,maxDate,freq=intervalFreq)
 numWorn={
     'count':[0 for i in range(len(dateRange))]
 }
@@ -88,9 +86,11 @@ dfWorn=pd.DataFrame(numWorn,index=[dateRange])
 for x in dfs:
     dfMin=min(x['datetime'])
     dfMax=max(x['datetime'])
-    dfWorn.loc[dfMin:dfMax]+=1#*SHOULD +1 to each count in between active dates?
-    print(dfWorn.loc[dfMin])#the row at the minDate (loops so prints all 43)
-    
-st.line_chart(dfWorn, y='count')
-st.dataframe(dfWorn)
-print('hello')
+    dfWorn.loc[dfMin:dfMax]+=1#+1 to each count in between active dates
+
+dfWorn=dfWorn.reset_index()
+dfWorn.rename(columns={'level_0':'date'},inplace=True)
+st.line_chart(dfWorn,x='date',y='count',x_label='date',y_label='count')
+
+
+print('worked')

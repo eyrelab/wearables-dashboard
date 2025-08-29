@@ -14,11 +14,18 @@ for file in os.scandir(directory):
     fileNames.append(re.sub('[^0-9]','',file.name))#regex strip strings of non num values, patient ids?
     dfs.append(pd.read_csv(directory+'/'+file.name))
 
-patientSelect=st.selectbox(
+for i in range(len(fileNames)):
+    fileNames[i]=int(fileNames[i])
+fileNames.sort()#convert fileNames to ints + sort
+
+patientSelect=str(st.selectbox(
     'select patient id',
-    (fileNames),#*sort these
+    (fileNames),
     index=None
-)
+))
+
+for i in range(len(fileNames)):#convert back to string to avoid later problems
+    fileNames[i]=str(fileNames[i])
 
 meanMedSelect=st.selectbox(
     'select mean or median values',
@@ -28,7 +35,6 @@ meanMedSelect=st.selectbox(
 yData=st.radio(
     'pick data to plot',
     ['heart rate', 'respiratory rate', 'temperature', 'calibrated temperature'],
-    #index=None
 )
 
 st.divider()
@@ -92,5 +98,7 @@ dfWorn=dfWorn.reset_index()
 dfWorn.rename(columns={'level_0':'date'},inplace=True)
 st.line_chart(dfWorn,x='date',y='count',x_label='date',y_label='count')
 
+st.divider()
+st.subheader('missing proportion threshhold to change line colour')
 
-print('worked')
+# start w/heart rate? call it 0.2

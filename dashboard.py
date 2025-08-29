@@ -100,9 +100,10 @@ st.line_chart(dfWorn,x='date',y='count',x_label='date',y_label='count',color="#9
 
 st.divider()
 st.subheader('search for gaps (ext4)')
+
 incompCount=0
-for i in df['overall_completeness']:#where overall_completeness<1, gaps 
-    if i<1:
+for i in range(len(df['overall_completeness'])):#where overall_completeness<1, gaps 
+    if df['overall_completeness'][i]<1:
         incompCount+=1
 st.markdown(str(incompCount)+' gap(s) in data for patient #'+patientSelect)
-
+st.line_chart(df,x='datetime',y='overall_completeness',x_label='date',y_label='completeness')

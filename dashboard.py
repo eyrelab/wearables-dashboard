@@ -69,7 +69,7 @@ except ValueError:
 
 st.divider()
 
-st.subheader('num of devices worn at a time')#wont consider NA data as device was still worn?
+st.subheader('num of devices worn at a time (ext2)')#wont consider NA data as device was still worn?
 
 #loop thru dfs and find min/max dates
 minDate=min(dfs[0]['datetime'])#start with 1st and compare rest
@@ -96,9 +96,13 @@ for x in dfs:
 
 dfWorn=dfWorn.reset_index()
 dfWorn.rename(columns={'level_0':'date'},inplace=True)
-st.line_chart(dfWorn,x='date',y='count',x_label='date',y_label='count')
+st.line_chart(dfWorn,x='date',y='count',x_label='date',y_label='count',color="#9199D8")
 
 st.divider()
-st.subheader('missing proportion threshhold to change line colour')
+st.subheader('search for gaps (ext4)')
+incompCount=0
+for i in df['overall_completeness']:#where overall_completeness<1, gaps 
+    if i<1:
+        incompCount+=1
+st.markdown(str(incompCount)+' gap(s) in data for patient #'+patientSelect)
 
-# start w/heart rate? call it 0.2
